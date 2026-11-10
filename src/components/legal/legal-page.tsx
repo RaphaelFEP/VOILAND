@@ -1,4 +1,3 @@
-import { AlertTriangle } from "lucide-react";
 import type { ReactNode } from "react";
 
 import { Breadcrumbs } from "@/components/seo/breadcrumbs";
@@ -23,16 +22,7 @@ export function LegalPage({
           {title}
         </h1>
         {updated ? <p className="mt-3 text-sm text-subtle">Dernière mise à jour : {updated}</p> : null}
-        <div role="note" className="mt-8 flex gap-3 rounded-3xl bg-[#fff6ef] p-5 text-sm leading-relaxed text-muted ring-1 ring-coral/25">
-          <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-coral-ink" aria-hidden />
-          <p>
-            <strong className="text-ink">Modèle à vérifier avant publication.</strong> Ce document est
-            un modèle de travail : les mentions signalées « À compléter » doivent être renseignées et
-            l&apos;ensemble doit être validé par un professionnel du droit ou de la conformité au regard
-            de la situation exacte du cabinet.
-          </p>
-        </div>
-        <article className="glass glass-strong prose-legal mt-8 rounded-[32px] p-6 sm:p-10">{children}</article>
+        <article className="glass glass-strong prose-legal mt-10 rounded-[32px] p-6 sm:p-10">{children}</article>
       </Container>
     </section>
   );

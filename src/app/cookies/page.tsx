@@ -30,7 +30,7 @@ export default function CookiesPage() {
         <li>
           <strong>voiland-attribution</strong> (stockage de session) : mémorise la source de votre visite
           (paramètres de campagne, site référent) pendant la session ; transmis uniquement si vous
-          envoyez un formulaire. <em>Qualification à valider avec votre conseil.</em>
+          envoyez un formulaire.
         </li>
       </ul>
 

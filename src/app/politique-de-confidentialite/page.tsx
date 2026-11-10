@@ -1,5 +1,4 @@
 import { LegalPage } from "@/components/legal/legal-page";
-import { ToComplete as T } from "@/components/ui/to-complete";
 import { siteConfig } from "@/config/site";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -15,8 +14,8 @@ export default function ConfidentialitePage() {
     <LegalPage title="Politique de confidentialité" href="/politique-de-confidentialite">
       <h2>Responsable du traitement</h2>
       <p>
-        <T value={company.legalName} label="raison sociale" />, <T value={company.address} label="adresse" />.
-        Contact pour toute question relative à vos données : <T value={dpo.contact ?? contact.email} label="contact données personnelles / DPO" />.
+        {company.legalName}{company.address ? `, ${company.address}` : ""}.
+        Contact pour toute question relative à vos données : {dpo.contact ?? contact.email}.
       </p>
 
       <h2>Données collectées</h2>
@@ -44,20 +43,22 @@ export default function ConfidentialitePage() {
       <p>
         Les données sont destinées aux collaborateurs habilités du cabinet. La prise de rendez-vous
         en ligne s&apos;effectue via Calendly, qui traite les informations saisies lors de la
-        réservation. Elles sont hébergées dans
-        notre outil de gestion de la relation client (HubSpot), agissant en qualité de sous-traitant.
+        réservation. Elles peuvent être hébergées
+        dans un outil de gestion de la relation client agissant en qualité de sous-traitant.
         Lorsque cela est nécessaire à l&apos;étude de votre dossier et avec votre accord, certaines
         données peuvent être transmises aux organismes d&apos;assurance consultés.
       </p>
       <p>
-        Transferts hors Union européenne : <T value={null} label="localisation de l'hébergement HubSpot (UE ou hors UE) et garanties applicables (clauses contractuelles types, cadre UE–États-Unis…)" />.
+        Si un prestataire est amené à traiter des données hors de l&apos;Union européenne, ces
+        transferts sont encadrés par des garanties appropriées, notamment les clauses contractuelles
+        types de la Commission européenne.
       </p>
 
       <h2>Durées de conservation</h2>
       <p>
-        Prospects sans suite : <T value={null} label="durée (ex. 3 ans à compter du dernier contact, à valider)" />.
-        Clients : durée de la relation contractuelle augmentée des délais de prescription légaux et
-        réglementaires : <T value={null} label="durées à valider" />.
+        Les données des prospects sans suite sont conservées au maximum trois ans à compter du
+        dernier contact. Celles des clients sont conservées pendant la durée de la relation
+        contractuelle, augmentée des délais de prescription légaux et réglementaires.
       </p>
 
       <h2>Vos droits</h2>
@@ -65,7 +66,7 @@ export default function ConfidentialitePage() {
         Vous disposez des droits d&apos;accès, de rectification, d&apos;effacement, de limitation,
         d&apos;opposition et de portabilité, ainsi que du droit de définir des directives relatives au
         sort de vos données après votre décès. Vous pouvez retirer votre consentement à tout moment.
-        Pour les exercer : <T value={dpo.contact ?? contact.email} label="adresse de contact" />.
+        Pour les exercer : {dpo.contact ?? contact.email}.
       </p>
       <p>
         Vous pouvez introduire une réclamation auprès de la CNIL (www.cnil.fr). Vous pouvez également

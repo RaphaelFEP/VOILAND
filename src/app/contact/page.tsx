@@ -68,9 +68,10 @@ export default function ContactPage() {
               <li className="glass flex items-center gap-4 rounded-3xl p-4">
                 <span className="grid h-11 w-11 place-items-center rounded-2xl bg-ink text-white"><Clock className="h-4 w-4" aria-hidden /></span>
                 <span className="text-sm">
-                  <span className="block font-medium text-ink">Horaires &amp; adresse</span>
+                  <span className="block font-medium text-ink">{company.address ? "Horaires & adresse" : "Horaires"}</span>
                   <span className="text-muted">
-                    <ToComplete value={contact.openingHours} label="horaires" /> · <ToComplete value={company.address} label="adresse" />
+                    {contact.openingHours}
+                    {company.address ? ` · ${company.address}` : ""}
                   </span>
                 </span>
               </li>

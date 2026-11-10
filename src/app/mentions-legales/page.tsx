@@ -1,5 +1,6 @@
+import Link from "next/link";
+
 import { LegalPage } from "@/components/legal/legal-page";
-import { ToComplete as T } from "@/components/ui/to-complete";
 import { siteConfig } from "@/config/site";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -15,36 +16,34 @@ export default function MentionsLegalesPage() {
     <LegalPage title="Mentions légales" href="/mentions-legales">
       <h2>Éditeur du site</h2>
       <p>
-        Le site est édité par <T value={company.legalName} label="raison sociale" />,{" "}
-        <T value={company.legalForm} label="forme juridique" />, SIREN{" "}
-        <T value={company.siren} label="SIREN" /> (SIRET <T value={company.siret} label="SIRET" />), immatriculée au RCS sous le numéro{" "}
-        <T value={company.rcs} label="numéro RCS" />, dont
-        l&apos;adresse est <T value={company.address} label="adresse" />.
+        Le site est édité par {company.legalName}, {company.legalForm}, SIREN {company.siren} (SIRET{" "}
+        {company.siret}), immatriculée au RCS sous le numéro {company.rcs}
+        {company.address ? `, dont l'adresse est ${company.address}` : ""}.
       </p>
       <p>
-        Activité : <T value={company.activity} label="activité" />.
+        Activité : {company.activity}.
+        {company.vatNumber ? (
+          <>
+            <br />
+            Numéro de TVA intracommunautaire : {company.vatNumber}.
+          </>
+        ) : null}
         <br />
-        Numéro de TVA intracommunautaire : <T value={company.vatNumber} label="numéro de TVA" />.
-        <br />
-        Téléphone : <T value={contact.phone} label="téléphone" /> — E-mail :{" "}
-        <T value={contact.email} label="e-mail" />.
+        Téléphone : {contact.phone} — E-mail : {contact.email}.
       </p>
-      <p>
-        Directeur de la publication : <T value={company.publicationDirector} label="directeur de la publication" />.
-      </p>
+      <p>Directeur de la publication : {company.publicationDirector}.</p>
 
       <h2>Activité réglementée</h2>
       <p>
-        <T value={regulatory.status} label="statut réglementaire" />, agissant pour le compte de{" "}
-        <T value={regulatory.mandator} label="intermédiaire mandant (nom, statut, n° ORIAS)" />, immatriculé au registre unique
-        des intermédiaires en assurance, banque et finance (ORIAS) sous le numéro{" "}
-        <T value={regulatory.orias} label="numéro ORIAS" />, vérifiable sur www.orias.fr.
+        {regulatory.status}
+        {regulatory.mandator ? `, agissant pour le compte de ${regulatory.mandator}` : ""}, immatriculé
+        au registre unique des intermédiaires en assurance, banque et finance (ORIAS) sous le numéro{" "}
+        {regulatory.orias}, vérifiable sur www.orias.fr.
       </p>
       <p>
-        Responsabilité civile professionnelle conforme à l&apos;article L.512-6
-        du Code des assurances : <T value={regulatory.professionalLiabilityInsurer} label="assureur RC Pro" />,
-        contrat n° <T value={regulatory.professionalLiabilityPolicy} label="numéro de contrat" /> —{" "}
-        <T value={regulatory.professionalLiabilityCoverage} label="montants de garantie" />.
+        Responsabilité civile professionnelle conforme à l&apos;article L.512-6 du Code des assurances :{" "}
+        {regulatory.professionalLiabilityInsurer}, contrat n° {regulatory.professionalLiabilityPolicy} —{" "}
+        {regulatory.professionalLiabilityCoverage}.
       </p>
       <p>
         Autorité de contrôle : Autorité de Contrôle Prudentiel et de Résolution (ACPR), 4 place de
@@ -52,14 +51,17 @@ export default function MentionsLegalesPage() {
       </p>
       <p>
         Le détail des informations réglementaires figure sur la page{" "}
-        <a href="/informations-reglementaires">Informations réglementaires</a>.
+        <Link href="/informations-reglementaires">Informations réglementaires</Link>.
       </p>
 
-      <h2>Hébergement</h2>
-      <p>
-        <T value={hosting.name} label="nom de l'hébergeur" /> — <T value={hosting.address} label="adresse de l'hébergeur" /> —{" "}
-        <T value={hosting.contact} label="contact de l'hébergeur" />.
-      </p>
+      {hosting.name ? (
+        <>
+          <h2>Hébergement</h2>
+          <p>
+            {[hosting.name, hosting.address, hosting.contact].filter(Boolean).join(" — ")}.
+          </p>
+        </>
+      ) : null}
 
       <h2>Propriété intellectuelle</h2>
       <p>
@@ -78,8 +80,8 @@ export default function MentionsLegalesPage() {
 
       <h2>Données personnelles et cookies</h2>
       <p>
-        Voir la <a href="/politique-de-confidentialite">politique de confidentialité</a> et la{" "}
-        <a href="/cookies">politique cookies</a>.
+        Voir la <Link href="/politique-de-confidentialite">politique de confidentialité</Link> et la{" "}
+        <Link href="/cookies">politique cookies</Link>.
       </p>
     </LegalPage>
   );

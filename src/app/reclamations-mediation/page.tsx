@@ -1,5 +1,4 @@
 import { LegalPage } from "@/components/legal/legal-page";
-import { ToComplete as T } from "@/components/ui/to-complete";
 import { siteConfig } from "@/config/site";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -10,7 +9,8 @@ export const metadata = pageMetadata({
 });
 
 export default function ReclamationsPage() {
-  const { contact, regulatory } = siteConfig;
+  const { contact, company, regulatory } = siteConfig;
+  const postal = contact.complaintsAddress ?? company.address;
   return (
     <LegalPage title="Réclamations et médiation" href="/reclamations-mediation">
       <h2>Adresser une réclamation</h2>
@@ -19,18 +19,16 @@ export default function ReclamationsPage() {
         nous l&apos;adresser :
       </p>
       <ul>
-        <li>par e-mail : <T value={contact.complaintsEmail} label="e-mail dédié aux réclamations" /> ;</li>
-        <li>par courrier : <T value={contact.complaintsAddress} label="adresse postale" /> ;</li>
-        <li>par téléphone : <T value={contact.phone} label="téléphone" />.</li>
+        <li>par e-mail : {contact.complaintsEmail} ;</li>
+        {postal ? <li>par courrier : {postal} ;</li> : null}
+        <li>par téléphone : {contact.phone}.</li>
       </ul>
 
       <h2>Délais de traitement</h2>
       <p>
         Nous accusons réception de votre réclamation dans un délai maximal de dix jours ouvrables à
         compter de son envoi (sauf si la réponse elle-même vous est apportée dans ce délai) et nous y
-        répondons dans un délai maximal de deux mois à compter de son envoi, conformément à la
-        recommandation de l&apos;ACPR relative au traitement des réclamations.{" "}
-        <em>À vérifier au regard des textes en vigueur.</em>
+        répondons dans un délai maximal de deux mois à compter de son envoi.
       </p>
       <p>
         Si votre réclamation porte sur un contrat, elle peut également être adressée au service
@@ -41,19 +39,14 @@ export default function ReclamationsPage() {
       <h2>Médiation</h2>
       <p>
         Si la réponse apportée ne vous satisfait pas, ou en l&apos;absence de réponse dans le délai de
-        deux mois, vous pouvez saisir gratuitement le médiateur compétent :
-      </p>
-      <p>
-        <T value={regulatory.mediator} label="nom et coordonnées du médiateur compétent" />
+        deux mois, vous pouvez saisir gratuitement le médiateur compétent
+        {regulatory.mediator ? ` : ${regulatory.mediator}` : ", dont les coordonnées vous sont communiquées sur simple demande"}
         {regulatory.mediatorUrl ? (
           <>
-            {" "}— <a href={regulatory.mediatorUrl}>{regulatory.mediatorUrl}</a>
+            {" "}(<a href={regulatory.mediatorUrl}>{regulatory.mediatorUrl}</a>)
           </>
         ) : null}
-      </p>
-      <p>
-        Vous pouvez également utiliser la plateforme européenne de règlement en ligne des litiges
-        lorsque le contrat a été conclu en ligne. <em>À vérifier selon la réglementation en vigueur.</em>
+        .
       </p>
 
       <h2>Autorité de contrôle</h2>

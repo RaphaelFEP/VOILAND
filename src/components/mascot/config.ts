@@ -1,7 +1,8 @@
 /**
  * Configuration de la mascotte — point unique de bascule entre les rendus.
  *
- *  - "svg"   : mascotte vectorielle animée (par défaut, aucune ressource externe).
+ *  - "svg"   : mascotte vectorielle « assistant sobre » (par défaut).
+ *  - "cute"  : ancienne version « personnage mignon » (yeux, joues, sourire).
  *  - "image" : image officielle 2D (PNG détouré) déposée dans /public/mascot/,
  *              animée en CSS/Motion (flottement, inclinaison, reflets masqués
  *              par la silhouette, courbe dessinée sur l'écran).
@@ -9,7 +10,7 @@
  *              (voir docs/MASCOTTE-3D.md). Bascule automatiquement sur "svg"
  *              tant que le composant 3D n'est pas installé.
  */
-export type MascotRenderer = "svg" | "image" | "model";
+export type MascotRenderer = "svg" | "cute" | "image" | "model";
 
 export type MascotScreenArea = {
   /** Position de l'écran dans l'image, en fraction de la largeur/hauteur (0-1). */

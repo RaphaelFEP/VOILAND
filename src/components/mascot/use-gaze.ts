@@ -9,7 +9,16 @@ import { useEffect, type RefObject } from "react";
  */
 export function useGaze(
   ref: RefObject<SVGSVGElement | null>,
-  { smoothing = 0.16, idleMs = 4000 }: { smoothing?: number; idleMs?: number } = {},
+  {
+    smoothing = 0.16,
+    idleMs = 4000,
+    field = "local",
+  }: {
+    smoothing?: number;
+    idleMs?: number;
+    /** "viewport" : suivi proportionnel sur tout l'écran ; "local" : autour de la mascotte */
+    field?: "local" | "viewport";
+  } = {},
 ) {
   useEffect(() => {
     const el = ref.current;
@@ -40,10 +49,11 @@ export function useGaze(
       const r = el.getBoundingClientRect();
       const cx = r.left + r.width / 2;
       const cy = r.top + r.height * 0.3;
-      const range = Math.max(260, r.width * 1.4);
+      const rx = field === "viewport" ? Math.max(cx, window.innerWidth - cx) : Math.max(260, r.width * 1.4);
+      const ry = field === "viewport" ? Math.max(cy, window.innerHeight - cy, 200) : rx;
       target = {
-        x: Math.max(-1, Math.min(1, (e.clientX - cx) / range)),
-        y: Math.max(-1, Math.min(1, (e.clientY - cy) / range)),
+        x: Math.max(-1, Math.min(1, (e.clientX - cx) / rx)),
+        y: Math.max(-1, Math.min(1, (e.clientY - cy) / ry)),
       };
       lastMove = performance.now();
       kick();
@@ -51,7 +61,9 @@ export function useGaze(
     window.addEventListener("pointermove", onPointer, { passive: true });
     window.addEventListener("pointerdown", onPointer, { passive: true });
 
+    const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
     const idle = window.setInterval(() => {
+      if (finePointer && lastMove > 0) return; // à la souris : il garde la position du curseur
       if (performance.now() - lastMove < idleMs) return;
       const spots = [
         { x: 0, y: 0 },
@@ -76,5 +88,5 @@ export function useGaze(
       io.disconnect();
       cancelAnimationFrame(raf);
     };
-  }, [ref, smoothing, idleMs]);
+  }, [ref, smoothing, idleMs, field]);
 }

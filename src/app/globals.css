@@ -869,19 +869,22 @@
   transform-origin: 210px 256px;
   animation: sober-head 12s ease-in-out infinite;
 }
+.sober-look-body {
+  transform-box: view-box;
+  transform-origin: 210px 470px;
+  transform: translateX(calc(var(--lx, 0) * 5px)) rotate(calc(var(--lx, 0) * 3deg));
+}
 .sober-look-head {
   transform-box: view-box;
   transform-origin: 210px 256px;
-  transform: translate(calc(var(--lx, 0) * 5px), calc(var(--ly, 0) * 3px))
-    rotate(calc(var(--lx, 0) * 4deg));
+  transform: translate(calc(var(--lx, 0) * 14px), calc(var(--ly, 0) * 10px))
+    rotate(calc(var(--lx, 0) * 11deg));
 }
-.sober-look-eyes {
-  transform: translate(calc(var(--lx, 0) * 10px), calc(var(--ly, 0) * 7px));
+.sober-look-screen {
+  transform: translate(calc(var(--lx, 0) * 12px), calc(var(--ly, 0) * 8px));
 }
-.sober-eye {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: sober-blink 6.5s ease-in-out infinite;
+.sober-glare {
+  transform: translate(calc(var(--lx, 0) * 70px), calc(var(--ly, 0) * 45px));
 }
 .sober-curve {
   stroke-dasharray: 1;

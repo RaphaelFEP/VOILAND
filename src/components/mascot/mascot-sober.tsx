@@ -8,8 +8,8 @@ import { useGaze } from "./use-gaze";
 /**
  * Mascotte Voiland — version « assistant sobre ».
  *
- * Silhouette plus élancée, tête-écran au format appareil, yeux en pastilles
- * lumineuses qui suivent discrètement le curseur, courbe de progression
+ * Silhouette élancée, tête-écran au format appareil sans visage : la tête,
+ * le corps et le reflet de l'écran suivent le curseur ; courbe de progression
  * patrimoniale toujours présente à l'écran (illustrative), pas de salut,
  * mouvements lents. Animations CSS : classes .sober-* (globals.css).
  */
@@ -18,9 +18,10 @@ export function MascotSober({ className }: { className?: string }) {
   const id = (s: string) => `${s}-${uid}`;
   const url = (s: string) => `url(#${id(s)})`;
   const ref = useRef<SVGSVGElement>(null);
-  useGaze(ref, { smoothing: 0.09 });
+  useGaze(ref, { smoothing: 0.14, field: "viewport" });
 
-  const curve = "M128 214 C 146 211, 152 202, 168 203 S 192 210, 206 199 S 230 182, 244 186 S 268 172, 292 160";
+  const curve =
+    "M104 214 C 124 212, 136 208, 150 200 S 176 182, 192 188 S 220 196, 236 170 S 262 138, 276 142 S 296 122, 316 104";
 
   return (
     <svg
@@ -59,13 +60,9 @@ export function MascotSober({ className }: { className?: string }) {
           <stop offset="0.6" stopColor="#0a0f1c" />
           <stop offset="1" stopColor="#05070d" />
         </linearGradient>
-        <linearGradient id={id("eye")} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#ffffff" />
-          <stop offset="1" stopColor="#ffd9c4" />
-        </linearGradient>
-        <radialGradient id={id("eyeGlow")} cx="50%" cy="50%" r="50%">
-          <stop offset="0" stopColor="#ffd9c4" stopOpacity="0.55" />
-          <stop offset="1" stopColor="#ffd9c4" stopOpacity="0" />
+        <radialGradient id={id("glare")} cx="50%" cy="50%" r="50%">
+          <stop offset="0" stopColor="#ffffff" stopOpacity="0.16" />
+          <stop offset="1" stopColor="#ffffff" stopOpacity="0" />
         </radialGradient>
         <linearGradient id={id("curve")} x1="0" y1="0" x2="1" y2="0">
           <stop offset="0" stopColor="#f5a6bf" />
@@ -102,6 +99,7 @@ export function MascotSober({ className }: { className?: string }) {
       <ellipse className="sober-shadow" cx="210" cy="500" rx="78" ry="10" fill={url("shadow")} />
 
       <g className="sober-float">
+        <g className="sober-look-body">
         {/* Bras, le long du corps */}
         <path d="M152 320 C 136 336, 130 362, 133 392" stroke={url("body")} strokeWidth="24" strokeLinecap="round" fill="none" />
         <path d="M268 320 C 284 336, 290 362, 287 392" stroke={url("body")} strokeWidth="24" strokeLinecap="round" fill="none" />
@@ -154,16 +152,9 @@ export function MascotSober({ className }: { className?: string }) {
                 <path d="M163 96 V238 M210 96 V238 M257 96 V238" />
               </g>
 
-              {/* yeux : pastilles lumineuses */}
-              <g className="sober-look-eyes">
-                <ellipse cx="180" cy="138" rx="18" ry="24" fill={url("eyeGlow")} />
-                <ellipse cx="240" cy="138" rx="18" ry="24" fill={url("eyeGlow")} />
-                <rect className="sober-eye" x="174" y="124" width="12" height="28" rx="6" fill={url("eye")} />
-                <rect className="sober-eye" x="234" y="124" width="12" height="28" rx="6" fill={url("eye")} />
-              </g>
-
-              {/* courbe de progression permanente (illustrative) */}
-              <path className="sober-area" d={`${curve} L 292 238 L 128 238 Z`} fill={url("area")} />
+              {/* courbe de progression permanente (illustrative), en parallaxe */}
+              <g className="sober-look-screen">
+              <path className="sober-area" d={`${curve} L 316 250 L 104 250 Z`} fill={url("area")} />
               <path
                 className="sober-curve"
                 d={curve}
@@ -174,7 +165,10 @@ export function MascotSober({ className }: { className?: string }) {
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
-              <circle className="sober-dot" cx="292" cy="160" r="4.5" fill="#ffd9c4" />
+              <circle className="sober-dot" cx="276" cy="142" r="5" fill="#ffd9c4" />
+              </g>
+              {/* reflet de vitre qui glisse vers le curseur */}
+              <ellipse className="sober-glare" cx="210" cy="150" rx="70" ry="44" fill={url("glare")} />
 
               <path d="M128 112 C 156 101, 206 99, 242 101 C 200 109, 160 122, 126 146 Z" fill="#fff" opacity="0.07" />
             </g>
@@ -185,6 +179,7 @@ export function MascotSober({ className }: { className?: string }) {
               <rect className="sober-sheen" x="150" y="60" width="36" height="220" fill={url("sheen")} opacity="0.3" />
             </g>
           </g>
+        </g>
         </g>
       </g>
     </svg>

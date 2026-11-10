@@ -95,7 +95,7 @@ const regimeNotes: Record<keyof typeof professions, string> = {
   medecin: "Pour les médecins libéraux, l'indemnisation obligatoire relève de l'Assurance maladie puis, après une certaine durée d'arrêt, de la CARMF. Montants et délais sont à vérifier sur vos relevés.",
   avocat: "Pour les avocats, la couverture obligatoire combine plusieurs dispositifs (Assurance maladie, régime de la profession, éventuels contrats du barreau). Leur articulation mérite une lecture attentive.",
   liberal: "Les professions libérales relèvent de l'Assurance maladie pour les premiers mois d'arrêt, puis, selon les cas, de leur caisse professionnelle. Montants et délais sont à vérifier.",
-  dirigeant: "La protection d'un dirigeant dépend de son statut (assimilé salarié ou travailleur non salarié) et des contrats souscrits par la société. Nous analysons les deux niveaux.",
+  dirigeant: "La protection d'un dirigeant dépend de son statut (assimilé salarié ou travailleur non salarié) et des contrats souscrits par la société. J'analyse les deux niveaux.",
   independant: "Les indemnités journalières des indépendants sont plafonnées et assorties d'un délai de carence ; elles couvrent rarement l'ensemble des charges fixes.",
 };
 
@@ -159,7 +159,7 @@ function PrevoyanceResult({ v }: { v: Values }) {
       ) : null}
 
       <Checklist
-        title="Ce que nous vérifierons ensemble"
+        title="Ce que je vérifierai avec vous"
         icon={ScanSearch}
         items={[
           { title: "Indemnités journalières", text: "montant, franchise, durée d'indemnisation et articulation avec votre régime obligatoire." },
@@ -217,7 +217,7 @@ const steps: FunnelStep<Values>[] = [
     id: "garanties",
     label: "Garanties",
     title: "Vos garanties existantes",
-    description: "Si vous ne connaissez pas un montant, laissez-le vide : nous le vérifierons.",
+    description: "Si vous ne connaissez pas un montant, laissez-le vide : je le vérifierai.",
     fields: ["coverage", "dailyAllowance", "franchise", "savings"],
     render: (v) => (
       <div className="space-y-6">

@@ -14,7 +14,7 @@ import type { FaqItem } from "@/content/faq";
 const howItWorks = [
   { title: "Répondez à quelques questions", text: "Moins de trois minutes, sans document à fournir." },
   { title: "Obtenez une première lecture", text: "Un résultat indicatif immédiat, utile même sans suite." },
-  { title: "Recevez une analyse personnalisée", text: "Si vous le souhaitez, un conseiller étudie vos contrats." },
+  { title: "Recevez une analyse personnalisée", text: "Si vous le souhaitez, j'étudie vos contrats et je vous rappelle sous 24 h." },
 ];
 
 export function ProductHero({
@@ -80,7 +80,7 @@ export function AnalysisAside({ product }: { product: Product }) {
             <Mascot className="h-full w-full" wave={false} />
           </div>
           <div>
-            <p className="text-sm font-semibold text-ink">Ce que nous analysons</p>
+            <p className="text-sm font-semibold text-ink">Ce que j&apos;analyse</p>
             <p className="text-xs text-muted">Lors de votre étude personnalisée</p>
           </div>
         </div>

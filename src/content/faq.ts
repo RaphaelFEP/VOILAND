@@ -6,7 +6,7 @@ export const homeFaq: FaqItem[] = [
   {
     question: "Comment se déroule un premier échange avec le cabinet ?",
     answer:
-      "Vous pouvez commencer par l'un de nos diagnostics en ligne ou réserver directement un créneau. Lors du premier échange, nous faisons le point sur votre situation personnelle et professionnelle, vos contrats en cours et vos objectifs, avant de vous proposer une analyse détaillée.",
+      "Vous pouvez commencer par l'un de nos diagnostics en ligne ou réserver directement un créneau. Lors du premier échange, je fais le point sur votre situation personnelle et professionnelle, vos contrats en cours et vos objectifs, avant de vous proposer une analyse détaillée.",
   },
   {
     question: "Comment le cabinet est-il rémunéré ?",

@@ -24,7 +24,7 @@ export function ProductVisual({ product, duration }: { product: Product; duratio
       </div>
       <div className="animate-float-slow absolute -right-6 bottom-[2%]" style={{ animationDelay: "0.2s" }}>
         <div className="glass glass-strong w-60 rounded-[20px] p-4">
-          <p className="text-xs font-semibold uppercase tracking-[0.1em] text-coral-ink">Nous analysons</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.1em] text-coral-ink">J&apos;analyse</p>
           <ul className="mt-2 space-y-1.5">
             {product.analysis.slice(0, 3).map((a) => (
               <li key={a} className="flex items-start gap-2 text-xs leading-snug text-ink-2">

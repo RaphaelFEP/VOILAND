@@ -1,4 +1,5 @@
 import { ArrowRight, CalendarDays, Check } from "lucide-react";
+import Image from "next/image";
 
 import { ButtonLink } from "@/components/ui/button";
 import { Container } from "@/components/ui/section";
@@ -47,7 +48,20 @@ export function Hero() {
                 Prendre rendez-vous
               </ButtonLink>
             </div>
-            <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
+            <div className="mt-8 inline-flex items-center gap-3 rounded-full bg-white/70 py-1.5 pl-1.5 pr-4 ring-1 ring-line">
+              <Image
+                src="/brand/enzo-voiland-160.webp"
+                alt=""
+                width={40}
+                height={40}
+                className="h-10 w-10 rounded-full object-cover ring-2 ring-white"
+              />
+              <span className="text-sm leading-tight">
+                <span className="block font-semibold text-ink">Enzo Voiland</span>
+                <span className="block text-muted">vous rappelle sous 24 h</span>
+              </span>
+            </div>
+            <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
               {["Analyse personnalisée", "Sans engagement", "Accompagnement dans la durée"].map(
                 (t) => (
                   <li key={t} className="flex items-center gap-2">

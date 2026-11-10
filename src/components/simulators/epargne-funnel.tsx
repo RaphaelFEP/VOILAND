@@ -129,7 +129,7 @@ export function EpargneFunnel({ snapshot, className }: { snapshot: EpargneSnapsh
             <Kpi tone="accent" label="Effort d'épargne" value={formatEur(snapshot.contributions)} hint="Total des versements simulés." />
           </div>
           <Checklist
-            title="Ce que nous analyserons"
+            title="Ce que j'analyserai"
             items={[
               { title: "Frais réels", text: "frais de gestion, d'arbitrage et sur versements de vos contrats, et frais des supports." },
               { title: "Allocation", text: `cohérence entre vos supports et un profil ${v.risk ? risks[v.risk].toLowerCase() : "à définir"}.` },

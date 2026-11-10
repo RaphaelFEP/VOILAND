@@ -1,3 +1,4 @@
+import { Advisor } from "@/components/home/advisor";
 import { CtaBand } from "@/components/home/cta-band";
 import { Faq } from "@/components/home/faq";
 import { Hero } from "@/components/home/hero";
@@ -35,6 +36,7 @@ export default function HomePage() {
       <ObjectivePicker />
       <Universes />
       <Why />
+      <Advisor />
       <Method />
       <Professions />
       <Faq items={homeFaq} />

@@ -114,7 +114,7 @@ function MutuelleResult({ v }: { v: Values }) {
         />
       </div>
       <Checklist
-        title="Ce que nous vérifierons dans votre contrat"
+        title="Ce que je vérifierai dans votre contrat"
         icon={ScanSearch}
         items={selected.map((p) => ({ title: priorities[p], text: checks[p] }))}
       />

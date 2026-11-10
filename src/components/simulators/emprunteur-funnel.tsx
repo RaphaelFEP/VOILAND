@@ -341,7 +341,7 @@ export function EmprunteurFunnel({ className }: { className?: string }) {
       product={() => "emprunteur"}
       objective={() => "Vérification de l'économie sur l'assurance emprunteur"}
       contactTitle="Faites vérifier votre économie gratuitement"
-      contactIntro="Un conseiller recalcule votre économie sur vos véritables échéances, la confirme avec un devis d'assureur à garanties équivalentes, puis s'occupe des formalités si vous le souhaitez."
+      contactIntro="Je vous rappelle sous 24 h. Je recalcule votre économie sur vos véritables échéances, je la confirme avec un devis d'assureur à garanties équivalentes, puis je m'occupe des formalités si vous le souhaitez."
       submitLabel="Vérifier mon économie"
       header={
         <div className="mb-6 flex items-center gap-3 border-b border-line pb-5">

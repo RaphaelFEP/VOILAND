@@ -9,7 +9,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata({
   title: "Prendre rendez-vous",
   description:
-    "Réservez un échange avec un conseiller Voiland Finances & Patrimoine pour faire le point sur votre mutuelle, votre prévoyance, votre assurance emprunteur ou votre épargne.",
+    "Réservez un échange avec Enzo Voiland pour faire le point sur votre mutuelle, votre prévoyance, votre assurance emprunteur ou votre épargne.",
   path: "/rendez-vous",
 });
 

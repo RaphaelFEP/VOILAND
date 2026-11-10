@@ -29,7 +29,7 @@ const steps: FunnelStep<Values>[] = [
   {
     id: "demande",
     label: "Votre demande",
-    title: "Comment pouvons-nous vous aider ?",
+    title: "Comment puis-je vous aider ?",
     fields: ["subject", "message"],
     render: () => (
       <div className="space-y-5">
@@ -57,7 +57,7 @@ export function ContactForm() {
       product={(v) => v.subject}
       objective={(v) => subjects[v.subject]}
       contactTitle="Vos coordonnées"
-      contactIntro="Nous vous répondons dans les meilleurs délais."
+      contactIntro="Je vous réponds sous 24 h."
       submitLabel="Envoyer ma demande"
       summarize={(v) => [
         { label: "Sujet", value: subjects[v.subject] },

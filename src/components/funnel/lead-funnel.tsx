@@ -73,7 +73,7 @@ export function LeadFunnel<T extends FieldValues & ContactFields>({
   summarize,
   objective,
   contactTitle = "Recevez votre analyse personnalisée",
-  contactIntro = "Un conseiller étudie vos réponses et vous recontacte pour approfondir votre situation. Sans engagement.",
+  contactIntro = "J'étudie vos réponses et je vous rappelle sous 24 h pour approfondir votre situation. Sans engagement.",
   submitLabel = "Recevoir mon analyse personnalisée",
   className,
   id,

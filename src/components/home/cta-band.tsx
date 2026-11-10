@@ -33,7 +33,7 @@ export function CtaBand({
             className="!bg-white/10 !shadow-none ring-1 ring-white/25 hover:!bg-white/15"
             icon={<ArrowRight className="h-4 w-4" />}
           >
-            Nous écrire
+            M&apos;écrire
           </ButtonLink>
         </div>
       </div>

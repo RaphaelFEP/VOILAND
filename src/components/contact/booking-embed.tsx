@@ -38,7 +38,7 @@ export function BookingEmbed() {
         </span>
         <h2 className="mt-5 text-xl font-semibold text-ink">Agenda en ligne indisponible</h2>
         <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-muted">
-          Laissez-nous vos coordonnées : nous vous rappelons pour fixer un créneau.
+          Laissez-moi vos coordonnées : je vous rappelle sous 24 h pour fixer un créneau.
         </p>
         <Link href="/contact" className="btn btn-primary mt-6">
           <span className="relative z-10">Être rappelé(e)</span>

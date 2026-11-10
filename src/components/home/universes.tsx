@@ -32,7 +32,7 @@ export function Universes() {
             <br className="hidden sm:block" /> ce qui compte vraiment.
           </>
         }
-        description="De la santé de votre famille à la trajectoire de votre patrimoine, nous analysons vos contrats avec la même exigence."
+        description="De la santé de votre famille à la trajectoire de votre patrimoine, j'analyse vos contrats avec la même exigence."
       />
       <div className="mt-14 grid gap-5 lg:grid-cols-6">
         {productList.map((p, i) => {

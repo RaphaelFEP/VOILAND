@@ -26,7 +26,7 @@ export const products: Record<ProductId, Product> = {
     title: "Votre mutuelle est-elle vraiment adaptée à vos besoins ?",
     hook: "Des remboursements alignés sur vos vrais postes de dépenses.",
     subtitle:
-      "Optique, dentaire, hospitalisation, dépassements d'honoraires : nous comparons votre couverture actuelle à vos besoins réels pour vous aider à payer le juste prix.",
+      "Optique, dentaire, hospitalisation, dépassements d'honoraires : je compare votre couverture actuelle à vos besoins réels pour vous aider à payer le juste prix.",
     cta: "Comparer ma couverture",
     targets: [
       "Particuliers",

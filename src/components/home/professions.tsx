@@ -39,7 +39,7 @@ export function Professions() {
           id="professions-title"
           eyebrow="Professions accompagnées"
           title="Chaque métier a ses propres risques."
-          description="Les régimes obligatoires, les revenus et les besoins diffèrent fortement d'une profession à l'autre. Nous en tenons compte dès le premier échange."
+          description="Les régimes obligatoires, les revenus et les besoins diffèrent fortement d'une profession à l'autre. J'en tiens compte dès le premier échange."
           className="lg:sticky lg:top-32"
         />
         <ul className="grid gap-4 sm:grid-cols-2">

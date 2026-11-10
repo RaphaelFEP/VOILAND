@@ -1,4 +1,5 @@
 import { CalendarDays, Mail, Phone, Clock } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 import { ContactForm } from "@/components/contact/contact-form";
@@ -33,13 +34,17 @@ export default function ContactPage() {
             </h1>
             <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted">
               Une question sur un contrat, une analyse à demander ou un projet à préparer :
-              écrivez-nous ou réservez directement un créneau.
+              écrivez-moi ou réservez directement un créneau. Je vous rappelle sous 24 h.
             </p>
 
             <div className="mt-8 flex items-center gap-4">
-              <span className="grid h-12 w-12 place-items-center rounded-full bg-gradient-to-br from-peach to-rose-2 text-lg font-semibold text-coral-ink ring-2 ring-white">
-                EV
-              </span>
+              <Image
+                src="/brand/enzo-voiland-160.webp"
+                alt=""
+                width={56}
+                height={56}
+                className="h-14 w-14 rounded-full object-cover ring-2 ring-white"
+              />
               <span>
                 <span className="block font-semibold text-ink">{siteConfig.advisor.name}</span>
                 <span className="block text-sm text-muted">{siteConfig.advisor.role}</span>

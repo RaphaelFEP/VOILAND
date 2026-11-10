@@ -13,12 +13,12 @@ const pillars = [
   {
     icon: ScanSearch,
     title: "Une analyse de vos besoins",
-    text: "Nous lisons vos contrats existants, identifions les doublons, les manques et les frais, puis comparons des solutions adaptées.",
+    text: "Je lis vos contrats existants, j'identifie les doublons, les manques et les frais, puis je compare des solutions adaptées.",
   },
   {
     icon: Handshake,
     title: "Un accompagnement dans la durée",
-    text: "Votre situation évolue : nous revoyons vos garanties et votre épargne aux moments clés de votre vie personnelle et professionnelle.",
+    text: "Votre situation évolue : je revois vos garanties et votre épargne aux moments clés de votre vie personnelle et professionnelle.",
   },
 ];
 
@@ -30,7 +30,7 @@ export function Why() {
           <div>
             <p className="eyebrow !text-peach">
               <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-peach" />
-              Pourquoi nous choisir
+              Pourquoi me faire confiance
             </p>
             <h2
               id="pourquoi-title"
@@ -40,7 +40,7 @@ export function Why() {
             </h2>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/75">
               Une approche personnalisée, une analyse de vos besoins et un
-              accompagnement dans la durée. Notre rôle : rendre vos protections
+              accompagnement dans la durée. Mon rôle : rendre vos protections
               lisibles et vos décisions sereines.
             </p>
             <ul className="mt-10 grid gap-4">

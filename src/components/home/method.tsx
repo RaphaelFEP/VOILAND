@@ -8,7 +8,7 @@ const steps = [
   },
   {
     title: "Comparaison des solutions adaptées",
-    text: "Nous étudions les garanties, les exclusions, les frais et les conditions des solutions pertinentes.",
+    text: "J'étudie les garanties, les exclusions, les frais et les conditions des solutions pertinentes.",
   },
   {
     title: "Présentation des recommandations",

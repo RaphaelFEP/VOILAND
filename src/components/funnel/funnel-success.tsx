@@ -1,6 +1,7 @@
 "use client";
 
 import { CalendarDays, CheckCircle2, Info } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import * as m from "motion/react-m";
 import type { Ref } from "react";
@@ -50,18 +51,27 @@ export function FunnelSuccess({
       role="status"
     >
       <m.span
+        className="relative mx-auto block h-20 w-20"
         initial={{ scale: 0.6, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ type: "spring", stiffness: 260, damping: 18, delay: 0.1 }}
-        className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-gradient-to-br from-peach to-rose-2 text-coral-ink shadow-[0_12px_30px_-12px_rgb(255_139_116/0.8)]"
       >
-        <CheckCircle2 className="h-8 w-8" aria-hidden />
+        <Image
+          src="/brand/enzo-voiland-160.webp"
+          alt="Enzo Voiland"
+          width={80}
+          height={80}
+          className="h-20 w-20 rounded-full object-cover ring-4 ring-white shadow-[0_12px_30px_-12px_rgb(11_26_51/0.45)]"
+        />
+        <span className="absolute -bottom-1 -right-1 grid h-8 w-8 place-items-center rounded-full bg-gradient-to-br from-coral to-rose text-white ring-2 ring-white">
+          <CheckCircle2 className="h-4 w-4" aria-hidden />
+        </span>
       </m.span>
       <h3 ref={ref} tabIndex={-1} className="mt-6 text-2xl font-semibold tracking-tight text-ink outline-none">
         Merci{firstName ? ` ${firstName}` : ""}, votre demande a bien été reçue.
       </h3>
       <p className="mx-auto mt-3 max-w-md text-muted">
-        Un conseiller vous recontacte au créneau indiqué pour approfondir votre
+        Enzo vous rappelle sous 24 h, au créneau indiqué, pour approfondir votre
         situation. Vous pouvez aussi réserver dès maintenant un rendez-vous.
       </p>
       <p className="mt-3 text-xs text-subtle">Référence : {result.reference}</p>

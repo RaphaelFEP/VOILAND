@@ -20,12 +20,12 @@ const steps = [
   {
     icon: Scale,
     title: "Vérification sur vos échéances",
-    text: "À partir de votre tableau d'amortissement, nous recalculons le coût restant réel de votre assurance actuelle.",
+    text: "À partir de votre tableau d'amortissement, je recalcule le coût restant réel de votre assurance actuelle.",
   },
   {
     icon: BadgeCheck,
     title: "Devis assureur et formalités",
-    text: "Nous confirmons l'économie avec un devis d'assurance déléguée à garanties équivalentes, puis gérons la substitution auprès de votre banque.",
+    text: "Je confirme l'économie avec un devis d'assurance déléguée à garanties équivalentes, puis je gère la substitution auprès de votre banque.",
   },
 ];
 

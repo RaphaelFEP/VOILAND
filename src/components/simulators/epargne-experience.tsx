@@ -223,7 +223,7 @@ export function EpargneExperience() {
           <p className="eyebrow">Étape suivante</p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">Faites analyser votre épargne</h2>
           <p className="mx-auto mt-4 max-w-xl text-muted">
-            Frais réels, allocation, horizon, fiscalité : nous examinons vos contrats pour vérifier
+            Frais réels, allocation, horizon, fiscalité : j&apos;examine vos contrats pour vérifier
             qu&apos;ils suivent la bonne trajectoire.
           </p>
         </div>

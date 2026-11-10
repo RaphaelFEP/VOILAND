@@ -21,7 +21,7 @@ export function Faq({
           id={`${id}-title`}
           eyebrow="Questions fréquentes"
           title={title}
-          description="Une question précise sur votre situation ? Posez-la lors d'un rendez-vous : nous prenons le temps d'y répondre."
+          description="Une question précise sur votre situation ? Posez-la lors d'un rendez-vous : je prends le temps d'y répondre."
         />
         <Glass className="px-6 py-2 sm:px-8" spotlight={false}>
           <Accordion items={items} />

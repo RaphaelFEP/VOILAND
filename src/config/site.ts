@@ -28,7 +28,10 @@ export const siteConfig = {
     legalName: null as MaybeText, // Raison sociale
     legalForm: null as MaybeText, // Forme juridique (SAS, SARL, EI…)
     shareCapital: null as MaybeText, // Capital social
-    siren: null as MaybeText,
+    siren: "108 527 235" as MaybeText,
+    siret: "108 527 235 00015" as MaybeText,
+    /** Activité déclarée (code NAF) */
+    activity: "Activités des agents et courtiers d'assurances (NAF 66.22Z)" as MaybeText,
     rcs: null as MaybeText, // Ville d'immatriculation RCS
     vatNumber: null as MaybeText,
     address: null as MaybeText,

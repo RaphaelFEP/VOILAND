@@ -19,10 +19,12 @@ export default function MentionsLegalesPage() {
         <T value={company.legalForm} label="forme juridique" /> au capital de{" "}
         <T value={company.shareCapital} label="capital social" />, immatriculée au RCS de{" "}
         <T value={company.rcs} label="ville RCS" /> sous le numéro SIREN{" "}
-        <T value={company.siren} label="SIREN" />, dont le siège social est situé{" "}
+        <T value={company.siren} label="SIREN" /> (SIRET <T value={company.siret} label="SIRET" />), dont le siège social est situé{" "}
         <T value={company.address} label="adresse du siège" />.
       </p>
       <p>
+        Activité : <T value={company.activity} label="activité" />.
+        <br />
         Numéro de TVA intracommunautaire : <T value={company.vatNumber} label="numéro de TVA" />.
         <br />
         Téléphone : <T value={contact.phone} label="téléphone" /> — E-mail :{" "}

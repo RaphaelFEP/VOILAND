@@ -23,7 +23,8 @@ export default function InformationsReglementairesPage() {
       <ul>
         <li>Dénomination : <T value={company.legalName} label="raison sociale" /></li>
         <li>Forme juridique et capital : <T value={company.legalForm} label="forme juridique" /> — <T value={company.shareCapital} label="capital" /></li>
-        <li>SIREN : <T value={company.siren} label="SIREN" /></li>
+        <li>SIREN : <T value={company.siren} label="SIREN" /> — SIRET : <T value={company.siret} label="SIRET" /></li>
+        <li>Activité : <T value={company.activity} label="activité" /></li>
         <li>Siège : <T value={company.address} label="adresse" /></li>
       </ul>
 

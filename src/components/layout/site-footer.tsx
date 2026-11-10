@@ -125,7 +125,7 @@ export function SiteFooter() {
               <ToComplete value={regulatory.status} label="statut réglementaire" /> —
               immatriculé à l&apos;ORIAS sous le n°{" "}
               <ToComplete value={regulatory.orias} label="numéro ORIAS" /> (www.orias.fr) —
-              SIREN <ToComplete value={company.siren} label="SIREN" />. Activité soumise au
+              SIRET <ToComplete value={company.siret} label="SIRET" /> — {company.activity}. Activité soumise au
               contrôle de l&apos;Autorité de Contrôle Prudentiel et de Résolution (ACPR).
             </p>
             <p className="mt-3">

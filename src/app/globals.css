@@ -550,62 +550,74 @@
 }
 @keyframes mascot-face {
   0%,
-  58% {
-    opacity: 1;
-  }
-  62%,
-  92% {
+  66% {
     opacity: 0;
   }
-  96%,
-  100% {
+  70%,
+  90% {
     opacity: 1;
+  }
+  94%,
+  100% {
+    opacity: 0;
   }
 }
 @keyframes mascot-chart {
   0%,
-  58% {
-    opacity: 0;
-  }
-  62%,
-  92% {
+  66% {
     opacity: 1;
   }
-  96%,
-  100% {
+  70%,
+  90% {
     opacity: 0;
+  }
+  94%,
+  100% {
+    opacity: 1;
   }
 }
 @keyframes mascot-draw {
-  0%,
-  61% {
+  0% {
     stroke-dashoffset: 1;
   }
-  78%,
-  100% {
+  12%,
+  91% {
     stroke-dashoffset: 0;
+  }
+  92%,
+  100% {
+    stroke-dashoffset: 1;
   }
 }
 @keyframes mascot-area {
   0%,
-  70% {
+  6% {
     opacity: 0;
   }
-  80%,
-  100% {
+  16%,
+  90% {
     opacity: 1;
+  }
+  92%,
+  100% {
+    opacity: 0;
   }
 }
 @keyframes mascot-dot {
   0%,
-  75% {
+  10% {
     opacity: 0;
     transform: scale(0.4);
   }
-  80%,
-  100% {
+  14%,
+  90% {
     opacity: 1;
     transform: scale(1);
+  }
+  92%,
+  100% {
+    opacity: 0;
+    transform: scale(0.4);
   }
 }
 @keyframes draw-loop {
@@ -729,26 +741,26 @@
 }
 /* L'écran alterne : visage → courbe de progression → visage (cycle 12 s) */
 .mascot-face {
-  animation: mascot-face 12s var(--ease-glass) 1s infinite;
+  opacity: 0;
+  animation: mascot-face 14s var(--ease-glass) 0.4s infinite;
 }
 .mascot-chart {
-  opacity: 0;
-  animation: mascot-chart 12s var(--ease-glass) 1s infinite;
+  animation: mascot-chart 14s var(--ease-glass) 0.4s infinite;
 }
 .mascot-curve {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  animation: mascot-draw 12s var(--ease-glass) 1s infinite;
+  animation: mascot-draw 14s var(--ease-glass) 0.4s infinite;
 }
 .mascot-area {
   opacity: 0;
-  animation: mascot-area 12s var(--ease-glass) 1s infinite;
+  animation: mascot-area 14s var(--ease-glass) 0.4s infinite;
 }
 .mascot-dot {
   transform-box: fill-box;
   transform-origin: center;
   opacity: 0;
-  animation: mascot-dot 12s var(--ease-glass) 1s infinite;
+  animation: mascot-dot 14s var(--ease-glass) 0.4s infinite;
 }
 /* Petite courbe autonome (cartes, mode image) */
 .draw-loop {
@@ -1021,7 +1033,7 @@
   }
   .mascot-face {
     animation: none !important;
-    opacity: 1;
+    opacity: 0;
   }
   .sober-curve,
   .sober-area,
@@ -1032,7 +1044,15 @@
   }
   .mascot-chart {
     animation: none !important;
-    opacity: 0;
+    opacity: 1;
+  }
+  .mascot-curve,
+  .mascot-area,
+  .mascot-dot {
+    animation: none !important;
+    stroke-dashoffset: 0;
+    opacity: 1;
+    transform: none;
   }
   .mascot-sheen,
   .mascot-png-sheen > span {

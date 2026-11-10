@@ -17,14 +17,14 @@ export function Mascot({
   switch (mascotConfig.renderer) {
     case "image":
       return <MascotImage className={className} />;
-    case "cute":
-      // Ancienne version « personnage mignon », conservée en option.
-      return <MascotSvg className={className} wave={wave} />;
+    case "sober":
+      // Version « assistant sobre », conservée en option.
+      return <MascotSober className={className} />;
     case "model":
     // Le modèle 3D sera branché ici (docs/MASCOTTE-3D.md).
     // falls through
     case "svg":
     default:
-      return <MascotSober className={className} />;
+      return <MascotSvg className={className} wave={wave} />;
   }
 }

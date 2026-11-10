@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useId, useRef } from "react";
+import { useId, useRef } from "react";
 
 import { MONO, MONO_VIEWBOX } from "@/components/ui/brand-paths";
+import { useGaze } from "./use-gaze";
 
 /**
  * Mascotte Voiland — rendu vectoriel.
@@ -10,8 +11,8 @@ import { MONO, MONO_VIEWBOX } from "@/components/ui/brand-paths";
  * Grosse tête-écran arrondie, grands yeux brillants qui suivent le curseur
  * (et regardent autour d'eux sur mobile), joues roses, sourire, corps blanc
  * brillant, articulations anthracite, contours translucides corail/rose.
- * Toutes les ~11 s, l'écran affiche la courbe de progression patrimoniale
- * (illustrative) avant de revenir au visage.
+ * L'écran affiche surtout la courbe de progression patrimoniale (illustrative) ;
+ * le visage apparaît environ 3 s toutes les 14 s.
  *
  * Le regard est piloté par deux variables CSS (--lx, --ly ∈ [-1, 1]) écrites
  * directement sur le <svg> : aucun re-render React. Désactivé si
@@ -29,83 +30,10 @@ export function MascotSvg({
   const url = (s: string) => `url(#${id(s)})`;
   const ref = useRef<SVGSVGElement>(null);
 
-  useEffect(() => {
-    const svg = ref.current;
-    if (!svg) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  useGaze(ref, { smoothing: 0.14, field: "viewport" });
 
-    let target = { x: 0, y: 0 };
-    const cur = { x: 0, y: 0 };
-    let raf = 0;
-    let lastMove = 0;
-    let visible = true;
-
-    const apply = () => {
-      raf = 0;
-      // lissage (ressort simple)
-      cur.x += (target.x - cur.x) * 0.16;
-      cur.y += (target.y - cur.y) * 0.16;
-      svg.style.setProperty("--lx", cur.x.toFixed(3));
-      svg.style.setProperty("--ly", cur.y.toFixed(3));
-      if (Math.abs(target.x - cur.x) > 0.002 || Math.abs(target.y - cur.y) > 0.002) {
-        raf = requestAnimationFrame(apply);
-      }
-    };
-    const kick = () => {
-      if (!raf && visible) raf = requestAnimationFrame(apply);
-    };
-
-    const lookAt = (clientX: number, clientY: number) => {
-      const r = svg.getBoundingClientRect();
-      // centre approximatif des yeux (≈ 30 % de la hauteur)
-      const cx = r.left + r.width / 2;
-      const cy = r.top + r.height * 0.3;
-      const dx = clientX - cx;
-      const dy = clientY - cy;
-      const range = Math.max(260, r.width * 1.4);
-      target = {
-        x: Math.max(-1, Math.min(1, dx / range)),
-        y: Math.max(-1, Math.min(1, dy / range)),
-      };
-      lastMove = performance.now();
-      kick();
-    };
-
-    const onPointer = (e: PointerEvent) => lookAt(e.clientX, e.clientY);
-    window.addEventListener("pointermove", onPointer, { passive: true });
-    window.addEventListener("pointerdown", onPointer, { passive: true });
-
-    // Sans pointeur actif (mobile, ou souris immobile) : il regarde autour de lui.
-    const idle = window.setInterval(() => {
-      if (performance.now() - lastMove < 4000) return;
-      const spots = [
-        { x: 0, y: 0 },
-        { x: -0.8, y: -0.2 },
-        { x: 0.8, y: -0.3 },
-        { x: 0.3, y: 0.6 },
-        { x: -0.4, y: 0.4 },
-      ];
-      target = spots[Math.floor(Math.random() * spots.length)];
-      kick();
-    }, 2600);
-
-    const io = new IntersectionObserver(([entry]) => {
-      visible = entry.isIntersecting;
-      if (visible) kick();
-    });
-    io.observe(svg);
-
-    return () => {
-      window.removeEventListener("pointermove", onPointer);
-      window.removeEventListener("pointerdown", onPointer);
-      window.clearInterval(idle);
-      io.disconnect();
-      cancelAnimationFrame(raf);
-    };
-  }, []);
-
-  const curve =
-    "M120 206 C 140 202, 146 188, 164 190 S 190 204, 206 186 S 232 160, 246 166 S 276 140, 300 120";
+  // Trajectoire de croissance régulière (illustrative) : aucun creux.
+  const curve = "M112 224 C 156 222, 196 212, 230 190 C 262 168, 282 140, 296 112";
 
   return (
     <svg
@@ -300,20 +228,20 @@ export function MascotSvg({
                   <path d="M94 124 H326 M94 162 H326 M94 200 H326" />
                   <path d="M152 80 V246 M210 80 V246 M268 80 V246" />
                 </g>
-                <path className="mascot-area" d={`${curve} L 300 246 L 120 246 Z`} fill={url("area")} />
+                <path className="mascot-area" d={`${curve} L 296 246 L 112 246 Z`} fill={url("area")} />
                 <path
                   className="mascot-curve"
                   d={curve}
                   pathLength={1}
                   fill="none"
                   stroke={url("curve")}
-                  strokeWidth="5"
+                  strokeWidth="6.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
                 <g className="mascot-dot">
-                  <circle cx="300" cy="120" r="11" fill="#ff8b74" opacity="0.25" />
-                  <circle cx="300" cy="120" r="5.5" fill="#ffd9c4" />
+                  <circle cx="296" cy="112" r="12" fill="#ff8b74" opacity="0.25" />
+                  <circle cx="296" cy="112" r="6" fill="#ffd9c4" />
                 </g>
               </g>
 

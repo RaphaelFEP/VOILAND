@@ -883,6 +883,14 @@
 .sober-look-screen {
   transform: translate(calc(var(--lx, 0) * 12px), calc(var(--ly, 0) * 8px));
 }
+.sober-look-eyes {
+  transform: translate(calc(var(--lx, 0) * 16px), calc(var(--ly, 0) * 11px));
+}
+.sober-eye {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: sober-blink 6.5s ease-in-out infinite;
+}
 .sober-glare {
   transform: translate(calc(var(--lx, 0) * 70px), calc(var(--ly, 0) * 45px));
 }

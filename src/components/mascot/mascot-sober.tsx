@@ -8,7 +8,8 @@ import { useGaze } from "./use-gaze";
 /**
  * Mascotte Voiland — version « assistant sobre ».
  *
- * Silhouette élancée, tête-écran au format appareil sans visage : la tête,
+ * Silhouette élancée, tête-écran au format appareil avec deux petits yeux
+ * lumineux discrets : les yeux, la tête,
  * le corps et le reflet de l'écran suivent le curseur ; courbe de progression
  * patrimoniale toujours présente à l'écran (illustrative), pas de salut,
  * mouvements lents. Animations CSS : classes .sober-* (globals.css).
@@ -60,6 +61,14 @@ export function MascotSober({ className }: { className?: string }) {
           <stop offset="0.6" stopColor="#0a0f1c" />
           <stop offset="1" stopColor="#05070d" />
         </linearGradient>
+        <linearGradient id={id("eye")} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#ffffff" />
+          <stop offset="1" stopColor="#ffd9c4" />
+        </linearGradient>
+        <radialGradient id={id("eyeGlow")} cx="50%" cy="50%" r="50%">
+          <stop offset="0" stopColor="#ffd9c4" stopOpacity="0.5" />
+          <stop offset="1" stopColor="#ffd9c4" stopOpacity="0" />
+        </radialGradient>
         <radialGradient id={id("glare")} cx="50%" cy="50%" r="50%">
           <stop offset="0" stopColor="#ffffff" stopOpacity="0.16" />
           <stop offset="1" stopColor="#ffffff" stopOpacity="0" />
@@ -166,6 +175,13 @@ export function MascotSober({ className }: { className?: string }) {
                 strokeLinejoin="round"
               />
               <circle className="sober-dot" cx="276" cy="142" r="5" fill="#ffd9c4" />
+              </g>
+              {/* petits yeux lumineux, qui suivent le curseur */}
+              <g className="sober-look-eyes">
+                <ellipse cx="186" cy="128" rx="11" ry="14" fill={url("eyeGlow")} />
+                <ellipse cx="234" cy="128" rx="11" ry="14" fill={url("eyeGlow")} />
+                <rect className="sober-eye" x="181.5" y="120" width="9" height="16" rx="4.5" fill={url("eye")} />
+                <rect className="sober-eye" x="229.5" y="120" width="9" height="16" rx="4.5" fill={url("eye")} />
               </g>
               {/* reflet de vitre qui glisse vers le curseur */}
               <ellipse className="sober-glare" cx="210" cy="150" rx="70" ry="44" fill={url("glare")} />

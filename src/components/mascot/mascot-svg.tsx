@@ -2,6 +2,8 @@
 
 import { useEffect, useId, useRef } from "react";
 
+import { MONO, MONO_VIEWBOX } from "@/components/ui/brand-paths";
+
 /**
  * Mascotte Voiland — rendu vectoriel.
  *
@@ -217,12 +219,15 @@ export function MascotSvg({
             fill={url("body")}
           />
           <path d="M162 312 C 178 298, 204 294, 222 298 C 196 302, 174 314, 158 334 C 152 326, 154 318, 162 312 Z" fill="#fff" opacity="0.9" />
-          {/* plastron : monogramme Voiland */}
-          <rect x="180" y="344" width="60" height="42" rx="18" fill="#0b1a33" opacity="0.05" />
-          <rect x="180.5" y="344.5" width="59" height="41" rx="17.5" fill="none" stroke={url("rim")} opacity="0.7" />
-          <path d="M195 355 L206 375 L212.5 363" fill="none" stroke="#0b1a33" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M212.5 363 C 216 357, 220 354, 226 352.5" fill="none" stroke="#ff8b74" strokeWidth="3.2" strokeLinecap="round" />
-          <circle cx="227" cy="352.5" r="2.5" fill="#ff8b74" />
+          {/* plastron : monogramme Voiland (logo officiel) */}
+          <rect x="178" y="342" width="64" height="46" rx="18" fill="#0b1a33" opacity="0.05" />
+          <rect x="178.5" y="342.5" width="63" height="45" rx="17.5" fill="none" stroke={url("rim")} opacity="0.7" />
+          <svg x="188" y="350" width="44" height="32.2" viewBox={MONO_VIEWBOX}>
+            <path d={MONO.V} fill="#0b1a33" fillRule="evenodd" />
+            <path d={MONO.F} fill="#0b1a33" fillRule="evenodd" />
+            <path d={MONO.P} fill="#0b1a33" fillRule="evenodd" />
+            <path d={MONO.wave} fill="#ff8b74" fillRule="evenodd" />
+          </svg>
           <circle className="mascot-led" cx="198" cy="408" r="3" fill="#ff8b74" />
           <circle className="mascot-led-2" cx="210" cy="408" r="3" fill="#f5a6bf" />
           <circle className="mascot-led-3" cx="222" cy="408" r="3" fill="#ffd9c4" />

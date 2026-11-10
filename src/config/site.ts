@@ -25,8 +25,8 @@ export const siteConfig = {
   contentUpdatedAt: "2026-11-09",
 
   company: {
-    legalName: null as MaybeText, // Raison sociale
-    legalForm: null as MaybeText, // Forme juridique (SAS, SARL, EI…)
+    legalName: "Enzo Voiland EI" as MaybeText, // Raison sociale
+    legalForm: "Entreprise individuelle (EI)" as MaybeText, // Forme juridique
     shareCapital: null as MaybeText, // Capital social
     siren: "108 527 235" as MaybeText,
     siret: "108 527 235 00015" as MaybeText,
@@ -58,12 +58,17 @@ export const siteConfig = {
     /** Numéro d'immatriculation ORIAS — vérifiable sur orias.fr */
     orias: "26012950" as MaybeText,
     /** Ex. « Courtier en assurance (catégorie …) » — à confirmer */
-    status: null as MaybeText,
+    status: "Mandataire d'intermédiaire d'assurance (MIA)" as MaybeText,
     /** Autres statuts éventuels : CIF, IOBSP, etc. */
     otherStatuses: null as MaybeText,
     cifAssociation: null as MaybeText,
-    professionalLiabilityInsurer: null as MaybeText,
-    professionalLiabilityPolicy: null as MaybeText,
+    professionalLiabilityInsurer: "Lloyd's Insurance Company SA" as MaybeText,
+    professionalLiabilityPolicy: "RB0002733" as MaybeText,
+    /** Montants et territoire de la RC Pro */
+    professionalLiabilityCoverage:
+      "1 564 610 € par sinistre et 2 315 610 € par année d'assurance — Union européenne et Espace économique européen" as MaybeText,
+    /** Intermédiaire mandant (obligatoire pour un MIA) : nom, statut, n° ORIAS */
+    mandator: null as MaybeText,
     financialGuarantee: null as MaybeText,
     /** Médiateur compétent (nom + coordonnées + site) */
     mediator: null as MaybeText,

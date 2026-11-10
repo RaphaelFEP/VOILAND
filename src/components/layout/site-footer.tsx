@@ -16,7 +16,7 @@ export function SiteFooter() {
         <div className="glass glass-strong rounded-[32px] p-6 sm:p-10">
           <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
             <div>
-              <Logo />
+              <Logo id="lm-f" />
               <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted">
                 Cabinet spécialisé en assurances de personnes, épargne et
                 préparation de la retraite. Une approche personnalisée et un

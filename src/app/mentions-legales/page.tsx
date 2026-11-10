@@ -16,11 +16,9 @@ export default function MentionsLegalesPage() {
       <h2>Éditeur du site</h2>
       <p>
         Le site est édité par <T value={company.legalName} label="raison sociale" />,{" "}
-        <T value={company.legalForm} label="forme juridique" /> au capital de{" "}
-        <T value={company.shareCapital} label="capital social" />, immatriculée au RCS de{" "}
-        <T value={company.rcs} label="ville RCS" /> sous le numéro SIREN{" "}
-        <T value={company.siren} label="SIREN" /> (SIRET <T value={company.siret} label="SIRET" />), dont le siège social est situé{" "}
-        <T value={company.address} label="adresse du siège" />.
+        <T value={company.legalForm} label="forme juridique" />, SIREN{" "}
+        <T value={company.siren} label="SIREN" /> (SIRET <T value={company.siret} label="SIRET" />), dont
+        l&apos;adresse est <T value={company.address} label="adresse" />.
       </p>
       <p>
         Activité : <T value={company.activity} label="activité" />.
@@ -36,13 +34,16 @@ export default function MentionsLegalesPage() {
 
       <h2>Activité réglementée</h2>
       <p>
-        <T value={regulatory.status} label="statut réglementaire" />, immatriculé au registre unique
+        <T value={regulatory.status} label="statut réglementaire" />, agissant pour le compte de{" "}
+        <T value={regulatory.mandator} label="intermédiaire mandant (nom, statut, n° ORIAS)" />, immatriculé au registre unique
         des intermédiaires en assurance, banque et finance (ORIAS) sous le numéro{" "}
         <T value={regulatory.orias} label="numéro ORIAS" />, vérifiable sur www.orias.fr.
       </p>
       <p>
-        Responsabilité civile professionnelle et garantie financière conformes aux articles L.512-6
-        et L.512-7 du Code des assurances : <T value={regulatory.professionalLiabilityInsurer} label="assureur RC Pro et n° de contrat" />.
+        Responsabilité civile professionnelle conforme à l&apos;article L.512-6
+        du Code des assurances : <T value={regulatory.professionalLiabilityInsurer} label="assureur RC Pro" />,
+        contrat n° <T value={regulatory.professionalLiabilityPolicy} label="numéro de contrat" /> —{" "}
+        <T value={regulatory.professionalLiabilityCoverage} label="montants de garantie" />.
       </p>
       <p>
         Autorité de contrôle : Autorité de Contrôle Prudentiel et de Résolution (ACPR), 4 place de

@@ -30,7 +30,8 @@ export default function InformationsReglementairesPage() {
 
       <h2>Statut et immatriculation</h2>
       <ul>
-        <li>Statut : <T value={regulatory.status} label="statut (ex. courtier en assurance — catégorie à préciser)" /></li>
+        <li>Statut : <T value={regulatory.status} label="statut" /></li>
+        <li>Intermédiaire mandant : <T value={regulatory.mandator} label="nom, statut et n° ORIAS du mandant" /></li>
         <li>Numéro ORIAS : <T value={regulatory.orias} label="numéro ORIAS" /> — vérifiable sur www.orias.fr</li>
         <li>Autres statuts : <T value={regulatory.otherStatuses} label="IOBSP, CIF… le cas échéant" /></li>
         <li>Association professionnelle (CIF) : <T value={regulatory.cifAssociation} label="association agréée, le cas échéant" /></li>
@@ -39,7 +40,8 @@ export default function InformationsReglementairesPage() {
       <h2>Garanties professionnelles</h2>
       <ul>
         <li>Responsabilité civile professionnelle : <T value={regulatory.professionalLiabilityInsurer} label="assureur" /> — contrat n° <T value={regulatory.professionalLiabilityPolicy} label="numéro de contrat" /></li>
-        <li>Garantie financière : <T value={regulatory.financialGuarantee} label="garant, le cas échéant" /></li>
+        <li>Montants et territoire : <T value={regulatory.professionalLiabilityCoverage} label="montants de garantie" /></li>
+        <li>Garantie financière : <T value={regulatory.financialGuarantee} label="garant, le cas échéant (non requise en l'absence de maniement de fonds)" /></li>
       </ul>
 
       <h2>Mode d&apos;exercice et partenaires</h2>

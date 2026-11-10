@@ -550,71 +550,72 @@
 }
 @keyframes mascot-face {
   0%,
-  66% {
-    opacity: 0;
+  48% {
+    transform: translateX(260px);
   }
-  70%,
-  90% {
-    opacity: 1;
+  54%,
+  94% {
+    transform: translateX(0);
   }
-  94%,
   100% {
-    opacity: 0;
+    transform: translateX(-260px);
   }
 }
 @keyframes mascot-chart {
   0%,
-  66% {
-    opacity: 1;
+  48% {
+    transform: translateX(0);
   }
-  70%,
-  90% {
-    opacity: 0;
+  54%,
+  93.9% {
+    transform: translateX(-260px);
   }
-  94%,
+  94% {
+    transform: translateX(260px);
+  }
   100% {
-    opacity: 1;
+    transform: translateX(0);
   }
 }
 @keyframes mascot-draw {
   0% {
     stroke-dashoffset: 1;
   }
-  12%,
-  91% {
+  16%,
+  92% {
     stroke-dashoffset: 0;
   }
-  92%,
+  93%,
   100% {
     stroke-dashoffset: 1;
   }
 }
 @keyframes mascot-area {
   0%,
-  6% {
+  8% {
     opacity: 0;
   }
-  16%,
-  90% {
+  18%,
+  92% {
     opacity: 1;
   }
-  92%,
+  93%,
   100% {
     opacity: 0;
   }
 }
 @keyframes mascot-dot {
   0%,
-  10% {
+  14% {
     opacity: 0;
     transform: scale(0.4);
   }
-  14%,
-  90% {
+  18%,
+  92% {
     opacity: 1;
     transform: scale(1);
   }
-  92%,
+  93%,
   100% {
     opacity: 0;
     transform: scale(0.4);
@@ -741,26 +742,26 @@
 }
 /* L'écran alterne : visage → courbe de progression → visage (cycle 12 s) */
 .mascot-face {
-  opacity: 0;
-  animation: mascot-face 14s var(--ease-glass) 0.4s infinite;
+  transform: translateX(260px);
+  animation: mascot-face 9.6s cubic-bezier(0.65, 0, 0.35, 1) infinite;
 }
 .mascot-chart {
-  animation: mascot-chart 14s var(--ease-glass) 0.4s infinite;
+  animation: mascot-chart 9.6s cubic-bezier(0.65, 0, 0.35, 1) infinite;
 }
 .mascot-curve {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  animation: mascot-draw 14s var(--ease-glass) 0.4s infinite;
+  animation: mascot-draw 9.6s var(--ease-glass) infinite;
 }
 .mascot-area {
   opacity: 0;
-  animation: mascot-area 14s var(--ease-glass) 0.4s infinite;
+  animation: mascot-area 9.6s var(--ease-glass) infinite;
 }
 .mascot-dot {
   transform-box: fill-box;
   transform-origin: center;
   opacity: 0;
-  animation: mascot-dot 14s var(--ease-glass) 0.4s infinite;
+  animation: mascot-dot 9.6s var(--ease-glass) infinite;
 }
 /* Petite courbe autonome (cartes, mode image) */
 .draw-loop {
@@ -1034,6 +1035,7 @@
   .mascot-face {
     animation: none !important;
     opacity: 0;
+    transform: translateX(260px);
   }
   .sober-curve,
   .sober-area,
@@ -1045,6 +1047,7 @@
   .mascot-chart {
     animation: none !important;
     opacity: 1;
+    transform: none;
   }
   .mascot-curve,
   .mascot-area,

@@ -11,8 +11,8 @@ import { useGaze } from "./use-gaze";
  * Grosse tête-écran arrondie, grands yeux brillants qui suivent le curseur
  * (et regardent autour d'eux sur mobile), joues roses, sourire, corps blanc
  * brillant, articulations anthracite, contours translucides corail/rose.
- * L'écran affiche surtout la courbe de progression patrimoniale (illustrative) ;
- * le visage apparaît environ 3 s toutes les 14 s.
+ * L'écran glisse en carrousel entre la courbe de progression patrimoniale
+ * (illustrative, ~5 s) et le visage (~4 s).
  *
  * Le regard est piloté par deux variables CSS (--lx, --ly ∈ [-1, 1]) écrites
  * directement sur le <svg> : aucun re-render React. Désactivé si

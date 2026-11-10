@@ -18,7 +18,7 @@ export default function EpargnePage() {
           id="sim-title"
           eyebrow="Simulateur de projection"
           title="Visualisez la trajectoire de votre épargne."
-          description="Choisissez votre parcours, ajustez les hypothèses et comparez les scénarios. Les résultats sont illustratifs et ne constituent pas une promesse de rendement."
+          description="Capital initial, épargne mensuelle, horizon et taux : voyez en un instant ce que deviennent vos versements. Résultats illustratifs, sans promesse de rendement."
         />
         <EpargneExperience />
       </Section>

@@ -111,7 +111,7 @@ export const products: Record<ProductId, Product> = {
     title: "Votre épargne suit-elle la bonne trajectoire ?",
     hook: "Projeter votre capital et préparer votre retraite.",
     subtitle:
-      "Assurance-vie ou Plan d'Épargne Retraite : visualisez l'effet du temps, des versements et des frais sur votre épargne, puis faites-la analyser.",
+      "Assurance-vie ou Plan d'Épargne Retraite : visualisez l'effet du temps et des intérêts composés sur votre épargne, puis faites-la analyser.",
     cta: "Faire analyser mon épargne",
     targets: [
       "Épargnants",
@@ -128,7 +128,7 @@ export const products: Record<ProductId, Product> = {
     ],
     seoTitle: "Assurance-vie et PER : simulez la trajectoire de votre épargne",
     seoDescription:
-      "Simulateur de projection d'épargne : capital initial, versements, horizon, frais et inflation. Parcours distincts assurance-vie et PER, à titre illustratif.",
+      "Calculatrice d'épargne : capital initial, épargne mensuelle, horizon et taux d'intérêt. Parcours distincts assurance-vie et PER, à titre illustratif.",
   },
 };
 

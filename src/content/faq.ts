@@ -106,12 +106,12 @@ export const productFaq: Record<ProductId, FaqItem[]> = {
     {
       question: "Le rendement affiché est-il garanti ?",
       answer:
-        "Non. Le simulateur utilise une hypothèse de rendement constante que vous choisissez. Les supports en unités de compte présentent un risque de perte en capital et les performances passées ne préjugent pas des performances futures.",
+        "Non. Le simulateur utilise un taux d'intérêt constant que vous choisissez. Les supports en unités de compte présentent un risque de perte en capital et les performances passées ne préjugent pas des performances futures.",
     },
     {
       question: "Pourquoi les frais ont-ils autant d'importance ?",
       answer:
-        "Les frais de gestion sont prélevés chaque année sur l'encours : sur un horizon long, quelques dixièmes de point se composent et peuvent représenter un écart significatif. Le simulateur montre cet écart entre la projection brute et nette de frais.",
+        "Les frais de gestion sont prélevés chaque année sur l'encours : sur un horizon long, quelques dixièmes de point se composent et peuvent représenter un écart significatif. Le simulateur est présenté hors frais pour rester lisible : nous intégrons les frais réels de vos contrats lors de l'analyse.",
     },
     {
       question: "Assurance-vie ou PER : lequel choisir ?",

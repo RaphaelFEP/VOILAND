@@ -64,11 +64,10 @@ export function EpargneFunnel({ snapshot, className }: { snapshot: EpargneSnapsh
 
   const simulationSummary = [
     { label: "Simulation — capital initial", value: formatEur(snapshot.input.initial) },
-    { label: "Simulation — versement mensuel", value: formatEur(snapshot.input.monthly) },
+    { label: "Simulation — épargne mensuelle", value: formatEur(snapshot.input.monthly) },
     { label: "Simulation — horizon", value: `${snapshot.input.years} ans` },
-    { label: "Simulation — hypothèse de rendement brut", value: formatPct(snapshot.input.grossRate) },
-    { label: "Simulation — frais de gestion / sur versements", value: `${formatPct(snapshot.input.annualFees)} / ${formatPct(snapshot.input.entryFees)}` },
-    { label: "Simulation — capital net projeté (illustratif)", value: formatEur(snapshot.finalNet) },
+    { label: "Simulation — taux supposé", value: formatPct(snapshot.input.rate) },
+    { label: "Simulation — capital final (illustratif)", value: formatEur(snapshot.finalCapital) },
     ...(snapshot.tmi !== null ? [{ label: "TMI déclarée", value: `${Math.round(snapshot.tmi * 100)} %` }] : []),
   ];
 
@@ -126,7 +125,7 @@ export function EpargneFunnel({ snapshot, className }: { snapshot: EpargneSnapsh
       render: (v) => (
         <div className="space-y-5">
           <div className="grid gap-3 sm:grid-cols-2">
-            <Kpi tone="ink" label={`Projection nette illustrative · ${snapshot.input.years} ans`} value={formatEur(snapshot.finalNet)} hint={`Hypothèse ${formatPct(snapshot.input.grossRate)} brut / an, non garantie.`} />
+            <Kpi tone="ink" label={`Capital final illustratif · ${snapshot.input.years} ans`} value={formatEur(snapshot.finalCapital)} hint={`Hypothèse de ${formatPct(snapshot.input.rate)} / an, non garantie.`} />
             <Kpi tone="accent" label="Effort d'épargne" value={formatEur(snapshot.contributions)} hint="Total des versements simulés." />
           </div>
           <Checklist

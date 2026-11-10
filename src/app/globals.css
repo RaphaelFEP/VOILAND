@@ -779,6 +779,130 @@
   animation: mascot-wave 2.2s ease-in-out 1.2s 1 both;
 }
 
+/* ---- Mascotte « assistant sobre » (MascotSober) : mouvements lents et posés ---- */
+@keyframes sober-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -6px, 0);
+  }
+}
+@keyframes sober-head {
+  0%,
+  100% {
+    transform: rotate(-1.2deg);
+  }
+  50% {
+    transform: rotate(1.2deg);
+  }
+}
+@keyframes sober-blink {
+  0%,
+  93%,
+  97%,
+  100% {
+    transform: scaleY(1);
+  }
+  95% {
+    transform: scaleY(0.12);
+  }
+}
+@keyframes sober-draw {
+  0% {
+    stroke-dashoffset: 1;
+    opacity: 1;
+  }
+  30%,
+  88% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  96% {
+    stroke-dashoffset: 0;
+    opacity: 0.25;
+  }
+  100% {
+    stroke-dashoffset: 1;
+    opacity: 0.25;
+  }
+}
+@keyframes sober-area {
+  0%,
+  12% {
+    opacity: 0;
+  }
+  32%,
+  88% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes sober-dot {
+  0%,
+  28% {
+    opacity: 0;
+  }
+  32%,
+  88% {
+    opacity: 1;
+  }
+  96%,
+  100% {
+    opacity: 0;
+  }
+}
+.sober-float {
+  animation: sober-float 9s ease-in-out infinite;
+  will-change: transform;
+}
+.sober-shadow {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: mascot-shadow 9s ease-in-out infinite;
+}
+.sober-head {
+  transform-box: view-box;
+  transform-origin: 210px 256px;
+  animation: sober-head 12s ease-in-out infinite;
+}
+.sober-look-head {
+  transform-box: view-box;
+  transform-origin: 210px 256px;
+  transform: translate(calc(var(--lx, 0) * 5px), calc(var(--ly, 0) * 3px))
+    rotate(calc(var(--lx, 0) * 4deg));
+}
+.sober-look-eyes {
+  transform: translate(calc(var(--lx, 0) * 10px), calc(var(--ly, 0) * 7px));
+}
+.sober-eye {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: sober-blink 6.5s ease-in-out infinite;
+}
+.sober-curve {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: sober-draw 10s var(--ease-glass) 0.6s infinite;
+}
+.sober-area {
+  opacity: 0;
+  animation: sober-area 10s var(--ease-glass) 0.6s infinite;
+}
+.sober-dot {
+  opacity: 0;
+  animation: sober-dot 10s var(--ease-glass) 0.6s infinite;
+}
+.sober-led {
+  animation: mascot-pulse 3.2s ease-in-out infinite;
+}
+.sober-sheen {
+  animation: mascot-sheen 9s var(--ease-glass) 2s infinite;
+}
+
 /* Masque d'une image PNG pour les reflets (mode image) */
 .mascot-png-sheen {
   -webkit-mask-size: contain;
@@ -861,6 +985,13 @@
   }
   .mascot-face {
     animation: none !important;
+    opacity: 1;
+  }
+  .sober-curve,
+  .sober-area,
+  .sober-dot {
+    animation: none !important;
+    stroke-dashoffset: 0;
     opacity: 1;
   }
   .mascot-chart {

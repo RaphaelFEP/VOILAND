@@ -8,7 +8,7 @@ import { useGaze } from "./use-gaze";
 /**
  * Mascotte Voiland — version « assistant sobre ».
  *
- * Silhouette élancée, tête-écran au format appareil avec deux petits yeux
+ * Silhouette élancée, bras d'origine (gauche le long du corps, droit levé), tête-écran au format appareil avec deux petits yeux
  * lumineux discrets : les yeux, la tête,
  * le corps et le reflet de l'écran suivent le curseur ; courbe de progression
  * patrimoniale toujours présente à l'écran (illustrative), pas de salut,
@@ -21,8 +21,8 @@ export function MascotSober({ className }: { className?: string }) {
   const ref = useRef<SVGSVGElement>(null);
   useGaze(ref, { smoothing: 0.14, field: "viewport" });
 
-  const curve =
-    "M104 214 C 124 212, 136 208, 150 200 S 176 182, 192 188 S 220 196, 236 170 S 262 138, 276 142 S 296 122, 316 104";
+  // Trajectoire de croissance régulière (illustrative) : jamais de creux.
+  const curve = "M98 230 C 144 228, 180 220, 214 203 C 246 186, 264 164, 276 140";
 
   return (
     <svg
@@ -79,7 +79,7 @@ export function MascotSober({ className }: { className?: string }) {
           <stop offset="1" stopColor="#ffd9c4" />
         </linearGradient>
         <linearGradient id={id("area")} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#ff8b74" stopOpacity="0.32" />
+          <stop offset="0" stopColor="#ff8b74" stopOpacity="0.42" />
           <stop offset="1" stopColor="#ff8b74" stopOpacity="0" />
         </linearGradient>
         <radialGradient id={id("glow")} cx="50%" cy="50%" r="50%">
@@ -109,13 +109,21 @@ export function MascotSober({ className }: { className?: string }) {
 
       <g className="sober-float">
         <g className="sober-look-body">
-        {/* Bras, le long du corps */}
-        <path d="M152 320 C 136 336, 130 362, 133 392" stroke={url("body")} strokeWidth="24" strokeLinecap="round" fill="none" />
-        <path d="M268 320 C 284 336, 290 362, 287 392" stroke={url("body")} strokeWidth="24" strokeLinecap="round" fill="none" />
-        <circle cx="133" cy="398" r="13" fill={url("body")} />
-        <circle cx="287" cy="398" r="13" fill={url("body")} />
-        <circle cx="153" cy="316" r="12" fill={url("joint")} />
-        <circle cx="267" cy="316" r="12" fill={url("joint")} />
+        {/* Bras (comme la version d'origine) : gauche le long du corps, droit levé */}
+        <g>
+          <path d="M144 322 C 122 336, 114 360, 118 386" stroke={url("body")} strokeWidth="28" strokeLinecap="round" fill="none" />
+          <circle cx="118" cy="392" r="17" fill={url("body")} />
+          <circle cx="118" cy="392" r="17" fill="none" stroke={url("rim")} strokeOpacity="0.5" strokeWidth="1.5" />
+          <circle cx="146" cy="318" r="14" fill={url("joint")} />
+          <circle cx="141" cy="313" r="4.5" fill="#fff" opacity="0.16" />
+        </g>
+        <g>
+          <path d="M276 320 C 300 310, 316 286, 320 262" stroke={url("body")} strokeWidth="28" strokeLinecap="round" fill="none" />
+          <circle cx="321" cy="254" r="17" fill={url("body")} />
+          <circle cx="321" cy="254" r="17" fill="none" stroke={url("rim")} strokeOpacity="0.5" strokeWidth="1.5" />
+          <circle cx="274" cy="318" r="14" fill={url("joint")} />
+          <circle cx="269" cy="313" r="4.5" fill="#fff" opacity="0.16" />
+        </g>
 
         {/* Corps */}
         <path
@@ -163,25 +171,26 @@ export function MascotSober({ className }: { className?: string }) {
 
               {/* courbe de progression permanente (illustrative), en parallaxe */}
               <g className="sober-look-screen">
-              <path className="sober-area" d={`${curve} L 316 250 L 104 250 Z`} fill={url("area")} />
+              <path className="sober-area" d={`${curve} L 276 250 L 98 250 Z`} fill={url("area")} />
               <path
                 className="sober-curve"
                 d={curve}
                 pathLength={1}
                 fill="none"
                 stroke={url("curve")}
-                strokeWidth="3.6"
+                strokeWidth="4.6"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
-              <circle className="sober-dot" cx="276" cy="142" r="5" fill="#ffd9c4" />
+              <circle className="sober-dot" cx="276" cy="140" r="11" fill="#ff8b74" opacity="0.3" />
+              <circle className="sober-dot" cx="276" cy="140" r="5.5" fill="#ffd9c4" />
               </g>
               {/* petits yeux lumineux, qui suivent le curseur */}
               <g className="sober-look-eyes">
-                <ellipse cx="186" cy="128" rx="11" ry="14" fill={url("eyeGlow")} />
-                <ellipse cx="234" cy="128" rx="11" ry="14" fill={url("eyeGlow")} />
-                <rect className="sober-eye" x="181.5" y="120" width="9" height="16" rx="4.5" fill={url("eye")} />
-                <rect className="sober-eye" x="229.5" y="120" width="9" height="16" rx="4.5" fill={url("eye")} />
+                <ellipse cx="186" cy="126" rx="16" ry="11" fill={url("eyeGlow")} />
+                <ellipse cx="234" cy="126" rx="16" ry="11" fill={url("eyeGlow")} />
+                <path className="sober-eye" d="M176 131 Q 186 117 196 131" fill="none" stroke={url("eye")} strokeWidth="5.5" strokeLinecap="round" />
+                <path className="sober-eye" d="M224 131 Q 234 117 244 131" fill="none" stroke={url("eye")} strokeWidth="5.5" strokeLinecap="round" />
               </g>
               {/* reflet de vitre qui glisse vers le curseur */}
               <ellipse className="sober-glare" cx="210" cy="150" rx="70" ry="44" fill={url("glare")} />

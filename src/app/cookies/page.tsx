@@ -37,8 +37,8 @@ export default function CookiesPage() {
       <h2>Traceurs soumis à consentement</h2>
       <ul>
         <li>
-          <strong>Services tiers — agenda HubSpot Meetings</strong> : affichage du module de prise de
-          rendez-vous intégré, susceptible de déposer des traceurs HubSpot.
+          <strong>Services tiers — agenda Calendly</strong> : affichage du module de prise de
+          rendez-vous intégré, susceptible de déposer des traceurs Calendly.
         </li>
         <li>
           <strong>Suivi de la relation commerciale — HubSpot</strong> (cookies <code>hubspotutk</code>,{" "}

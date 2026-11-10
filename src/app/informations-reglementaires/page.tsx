@@ -23,7 +23,7 @@ export default function InformationsReglementairesPage() {
       <ul>
         <li>Dénomination : <T value={company.legalName} label="raison sociale" /></li>
         <li>Forme juridique : <T value={company.legalForm} label="forme juridique" /></li>
-        <li>SIREN : <T value={company.siren} label="SIREN" /> — SIRET : <T value={company.siret} label="SIRET" /></li>
+        <li>SIREN : <T value={company.siren} label="SIREN" /> — SIRET : <T value={company.siret} label="SIRET" /> — RCS : <T value={company.rcs} label="numéro RCS" /></li>
         <li>Activité : <T value={company.activity} label="activité" /></li>
         <li>Siège : <T value={company.address} label="adresse" /></li>
       </ul>
@@ -32,7 +32,7 @@ export default function InformationsReglementairesPage() {
       <ul>
         <li>Statut : <T value={regulatory.status} label="statut" /></li>
         <li>Intermédiaire mandant : <T value={regulatory.mandator} label="nom, statut et n° ORIAS du mandant" /></li>
-        <li>Numéro ORIAS : <T value={regulatory.orias} label="numéro ORIAS" /> — vérifiable sur www.orias.fr</li>
+        <li>Numéro ORIAS : <T value={regulatory.orias} label="numéro ORIAS" />, inscription en qualité de MIA depuis le{" "}<T value={regulatory.oriasSince} label="date d'inscription" /> — vérifiable sur www.orias.fr</li>
         <li>Autres statuts : <T value={regulatory.otherStatuses} label="IOBSP, CIF… le cas échéant" /></li>
         <li>Association professionnelle (CIF) : <T value={regulatory.cifAssociation} label="association agréée, le cas échéant" /></li>
       </ul>

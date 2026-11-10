@@ -17,7 +17,8 @@ export default function MentionsLegalesPage() {
       <p>
         Le site est édité par <T value={company.legalName} label="raison sociale" />,{" "}
         <T value={company.legalForm} label="forme juridique" />, SIREN{" "}
-        <T value={company.siren} label="SIREN" /> (SIRET <T value={company.siret} label="SIRET" />), dont
+        <T value={company.siren} label="SIREN" /> (SIRET <T value={company.siret} label="SIRET" />), immatriculée au RCS sous le numéro{" "}
+        <T value={company.rcs} label="numéro RCS" />, dont
         l&apos;adresse est <T value={company.address} label="adresse" />.
       </p>
       <p>

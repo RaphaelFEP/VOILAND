@@ -11,7 +11,7 @@ import {
   type ReactNode,
 } from "react";
 
-import { hubspotPortalId, meetingsUrl } from "@/config/site";
+import { bookingProviderName, hubspotPortalId, meetingsUrl } from "@/config/site";
 
 export type ConsentCategory = "thirdParty" | "marketing";
 
@@ -42,7 +42,7 @@ export const consentCategories: CategoryInfo[] = [
           id: "thirdParty" as const,
           title: "Services tiers — prise de rendez-vous",
           description:
-            "Affichage du calendrier HubSpot Meetings intégré au site. Ce service peut déposer ses propres traceurs.",
+            `Affichage de l'agenda ${bookingProviderName} intégré au site. Ce service peut déposer ses propres traceurs.`,
         },
       ]
     : []),

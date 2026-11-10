@@ -5,16 +5,22 @@ import Link from "next/link";
 import * as m from "motion/react-m";
 import type { Ref } from "react";
 
-import { meetingsUrl } from "@/config/site";
+import { bookingProvider, meetingsUrl } from "@/config/site";
 import type { LeadResponse } from "@/lib/lead-schema";
 
 export function buildMeetingsUrl(p: { firstName?: string; lastName?: string; email?: string }) {
   if (!meetingsUrl) return null;
   try {
     const u = new URL(meetingsUrl);
-    if (p.firstName) u.searchParams.set("firstName", p.firstName);
-    if (p.lastName) u.searchParams.set("lastName", p.lastName);
-    if (p.email) u.searchParams.set("email", p.email);
+    if (bookingProvider === "calendly") {
+      const name = [p.firstName, p.lastName].filter(Boolean).join(" ");
+      if (name) u.searchParams.set("name", name);
+      if (p.email) u.searchParams.set("email", p.email);
+    } else {
+      if (p.firstName) u.searchParams.set("firstName", p.firstName);
+      if (p.lastName) u.searchParams.set("lastName", p.lastName);
+      if (p.email) u.searchParams.set("email", p.email);
+    }
     return u.toString();
   } catch {
     return meetingsUrl;

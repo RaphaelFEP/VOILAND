@@ -32,7 +32,7 @@ export const siteConfig = {
     siret: "108 527 235 00015" as MaybeText,
     /** Activité déclarée (code NAF) */
     activity: "Activités des agents et courtiers d'assurances (NAF 66.22Z)" as MaybeText,
-    rcs: null as MaybeText, // Ville d'immatriculation RCS
+    rcs: "108 527 235" as MaybeText, // Numéro RCS
     vatNumber: null as MaybeText,
     address: null as MaybeText,
     publicationDirector: "Enzo Voiland" as MaybeText,
@@ -49,7 +49,7 @@ export const siteConfig = {
     phone: "06 03 22 09 95" as MaybeText,
     /** Format E.164 pour les liens tel: (ex. +33100000000) */
     phoneHref: "+33603220995" as MaybeText,
-    openingHours: null as MaybeText,
+    openingHours: "Du lundi au vendredi, de 9 h à 20 h" as MaybeText,
     complaintsEmail: "voiland.patrimoine@gmail.com" as MaybeText,
     complaintsAddress: null as MaybeText,
   },
@@ -57,6 +57,8 @@ export const siteConfig = {
   regulatory: {
     /** Numéro d'immatriculation ORIAS — vérifiable sur orias.fr */
     orias: "26012950" as MaybeText,
+    /** Date d'inscription ORIAS (catégorie MIA) — renouvellement annuel à surveiller */
+    oriasSince: "06/11/2026" as MaybeText,
     /** Ex. « Courtier en assurance (catégorie …) » — à confirmer */
     status: "Mandataire d'intermédiaire d'assurance (MIA)" as MaybeText,
     /** Autres statuts éventuels : CIF, IOBSP, etc. */
@@ -92,8 +94,25 @@ export const siteConfig = {
   },
 } as const;
 
-/** URL de prise de rendez-vous HubSpot Meetings (publique, non secrète). */
-export const meetingsUrl = process.env.NEXT_PUBLIC_HUBSPOT_MEETINGS_URL || null;
+/**
+ * Lien de prise de rendez-vous (public, non secret) : Calendly par défaut,
+ * remplaçable par NEXT_PUBLIC_BOOKING_URL (Calendly ou HubSpot Meetings).
+ */
+export const meetingsUrl: string | null =
+  process.env.NEXT_PUBLIC_BOOKING_URL ||
+  process.env.NEXT_PUBLIC_HUBSPOT_MEETINGS_URL ||
+  "https://calendly.com/enzo-franceepargne/30min";
+
+export const bookingProvider: "calendly" | "hubspot" | "autre" | null = !meetingsUrl
+  ? null
+  : /calendly\.com/.test(meetingsUrl)
+    ? "calendly"
+    : /hubspot/.test(meetingsUrl)
+      ? "hubspot"
+      : "autre";
+
+export const bookingProviderName =
+  bookingProvider === "calendly" ? "Calendly" : bookingProvider === "hubspot" ? "HubSpot Meetings" : "notre agenda en ligne";
 
 /** Portal ID HubSpot pour le code de suivi (chargé uniquement avec consentement). */
 export const hubspotPortalId =

@@ -42,7 +42,9 @@ export default function ConfidentialitePage() {
 
       <h2>Destinataires</h2>
       <p>
-        Les données sont destinées aux collaborateurs habilités du cabinet. Elles sont hébergées dans
+        Les données sont destinées aux collaborateurs habilités du cabinet. La prise de rendez-vous
+        en ligne s&apos;effectue via Calendly, qui traite les informations saisies lors de la
+        réservation. Elles sont hébergées dans
         notre outil de gestion de la relation client (HubSpot), agissant en qualité de sous-traitant.
         Lorsque cela est nécessaire à l&apos;étude de votre dossier et avec votre accord, certaines
         données peuvent être transmises aux organismes d&apos;assurance consultés.

@@ -38,6 +38,8 @@ const result = await build({
     "process.env.NEXT_PUBLIC_CONSENT_DEMO": '"1"',
     "process.env.NEXT_PUBLIC_SITE_URL": '"https://www.exemple.fr"',
     "process.env.NEXT_PUBLIC_HUBSPOT_MEETINGS_URL": '""',
+    "process.env.NEXT_PUBLIC_BOOKING_URL": '""',
+    "process.env.NEXT_PUBLIC_DISABLE_EMBED": '"1"',
     "process.env.NEXT_PUBLIC_HUBSPOT_PORTAL_ID": '""',
     "process.env.NEXT_PUBLIC_HUBSPOT_REGION": '""',
     "process.env.NEXT_PUBLIC_MASCOT_RENDERER": "undefined",
